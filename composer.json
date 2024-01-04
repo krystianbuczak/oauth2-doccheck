@@ -1,0 +1,49 @@
+{
+    "name": "krystianbuczak/oauth2-doccheck",
+    "description": "DocCheck OAuth2 Provider for the PHP League OAuth2-Client",
+    "keywords": [
+        "oauth",
+        "oauth2",
+        "authorization",
+        "authentication",
+        "idp",
+        "identity",
+        "sso",
+        "single sign on",
+        "doccheck"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Krystian Buczak",
+            "email": "krystian.buczak@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "league/oauth2-client": "^2.7"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest",
+        "phpunit/phpunit": "^9.5",
+        "phpstan/phpstan": "^0.12.92",
+        "mockery/mockery": "^1.6",
+        "squizlabs/php_codesniffer": "^3.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "krystianbuczak\\OAuth2\\Client\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "krystianbuczak\\OAuth2\\Client\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": false,
+    "scripts": {
+        "check": "phpcs src test --standard=PSR12 -sp",
+        "test": "phpunit"
+    }
+}
