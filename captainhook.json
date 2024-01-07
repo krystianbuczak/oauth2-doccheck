@@ -1,0 +1,76 @@
+{
+    "commit-msg": {
+        "enabled": true,
+        "actions": [
+            {
+                "action": "\\CaptainHook\\App\\Hook\\Message\\Action\\Rules",
+                "options": [
+                    "\\CaptainHook\\App\\Hook\\Message\\Rule\\LimitSubjectLength",
+                    "\\CaptainHook\\App\\Hook\\Message\\Rule\\NoPeriodOnSubjectEnd"
+                ]
+            },
+            {
+                "action": "\\Ramsey\\CaptainHook\\ValidateConventionalCommit"
+            }
+        ]
+    },
+    "pre-push": {
+        "enabled": false,
+        "actions": []
+    },
+    "pre-commit": {
+        "enabled": true,
+        "actions": [
+            {
+                "action": "\\CaptainHook\\App\\Hook\\File\\Action\\DoesNotContainRegex",
+                "options": {
+                    "regex": "#print_r|var_dump|var_export| dd(| dump(|#i",
+                    "regexName": "debug output",
+                    "fileExtensions": [
+                        "inc",
+                        "php"
+                    ]
+                }
+            },
+            {
+                "action": "composer validate --strict"
+            },
+            {
+                "action": "composer run-script lint"
+            },
+            {
+                "action": "composer run-script check"
+            },
+            {
+                "action": "composer run-script analyse"
+            },
+            {
+                "action": "composer run-script test"
+            }
+        ]
+    },
+    "prepare-commit-msg": {
+        "enabled": false,
+        "actions": []
+    },
+    "post-commit": {
+        "enabled": false,
+        "actions": []
+    },
+    "post-merge": {
+        "enabled": false,
+        "actions": []
+    },
+    "post-checkout": {
+        "enabled": false,
+        "actions": []
+    },
+    "post-rewrite": {
+        "enabled": false,
+        "actions": []
+    },
+    "post-change": {
+        "enabled": false,
+        "actions": []
+    }
+}

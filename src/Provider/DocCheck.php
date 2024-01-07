@@ -59,7 +59,7 @@ class DocCheck extends AbstractProvider
     /**
      * Get access token url to retrieve token
      *
-     * @param array $params Query params
+     * @param array<string> $params Query params
      *
      * @return string Access token url.
      */
@@ -83,9 +83,9 @@ class DocCheck extends AbstractProvider
     /**
      * Get the default scopes used by this provider.
      *
-     * @param array $options Options to build query string
+     * @param array<string> $options Options to build query string
      *
-     * @return array Array of params to be used in authorization url.
+     * @return array<string> Array of params to be used in authorization url.
      */
     protected function getAuthorizationParameters(array $options): array
     {
@@ -109,7 +109,7 @@ class DocCheck extends AbstractProvider
      * The scope of the provisioned data is defined by the consent form set up by the DocCheck support team.
      * @link https://docs.doccheck.com/login-implementation/oauth/configuration.html
      *
-     * @return array Default scopes.
+     * @return array<string> Default scopes.
      */
     protected function getDefaultScopes(): array
     {
@@ -124,7 +124,7 @@ class DocCheck extends AbstractProvider
      * @throws DocCheckIdentityProviderException|\League\OAuth2\Client\Provider\Exception\IdentityProviderException
      *
      * @param ResponseInterface $response Response to check.
-     * @param array $data Parsed response data
+     * @param array<mixed> $data Parsed response data
      *
      * @return void
      */
@@ -142,7 +142,7 @@ class DocCheck extends AbstractProvider
     /**
      * Generate a user object from a successful user details request.
      *
-     * @param array $response API response.
+     * @param array<mixed> $response API response.
      * @param AccessToken $token Token used to fetch user details.
      *
      * @return ResourceOwnerInterface Resource owner.

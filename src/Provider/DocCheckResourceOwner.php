@@ -42,14 +42,14 @@ class DocCheckResourceOwner implements ResourceOwnerInterface
     /**
      * Raw response
      *
-     * @var array
+     * @var array<mixed>
      */
     protected array $response;
 
     /**
      * Creates new resource owner.
      *
-     * @param array $response
+     * @param array<mixed> $response
      */
     public function __construct(array $response = [])
     {
@@ -257,7 +257,7 @@ class DocCheckResourceOwner implements ResourceOwnerInterface
     /**
      * Return all of the owner details available as an array.
      *
-     * @return array
+     * @return array<mixed> Owner details.
      */
     public function toArray(): array
     {
