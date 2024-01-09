@@ -16,11 +16,22 @@
     },
     "pre-push": {
         "enabled": false,
-        "actions": []
+        "actions": [
+            {
+                "action": "\\Webgriffe\\CaptainHook\\PreventPushForce",
+                "options": { "protected-branches": ["main"] }
+            }
+        ]
     },
     "pre-commit": {
         "enabled": true,
         "actions": [
+            {
+                "action": "\\CaptainHook\\App\\Hook\\Branch\\Action\\EnsureNaming",
+                "options": {
+                    "regex": "#[a-z0-9]+\/(feature|bugfix)\/([0-9]-)?[a-z0-9_-]{3,}$#"
+                }
+            },
             {
                 "action": "\\CaptainHook\\App\\Hook\\File\\Action\\DoesNotContainRegex",
                 "options": {
@@ -30,6 +41,12 @@
                         "inc",
                         "php"
                     ]
+                }
+            },
+            {
+                "action": "\\CaptainHook\\App\\Hook\\File\\Action\\MaxSize",
+                "options": {
+                    "maxSize": "1M"
                 }
             },
             {
